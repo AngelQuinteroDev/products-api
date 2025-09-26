@@ -65,4 +65,4 @@ http://localhost:5000/api-docs
 ```
 GET http://localhost:5000/api/products?page=1&limit=10
 
-![GET Products](docs/Post_Product.png)
+![GET Products](/docs/Post_Product.png)
