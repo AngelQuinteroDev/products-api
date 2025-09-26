@@ -64,3 +64,5 @@ http://localhost:5000/api-docs
 1️⃣ Get all products
 ```
 GET http://localhost:5000/api/products?page=1&limit=10
+
+![GET Products](./docs/Post_Product.png)
