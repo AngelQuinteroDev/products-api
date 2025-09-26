@@ -38,3 +38,29 @@ Development (auto-reload with nodemon)
 ```
 npm run dev
 ```
+
+The API will run at http://localhost:5000
+
+## 📄 API Documentation
+
+Explore and test the API interactively using Swagger:
+
+http://localhost:5000/api-docs
+
+## 🔗 Endpoints Overview
+
+
+| Method  | Endpoint          |    Description        |
+| --------|:-------------:    |:-------------:      |
+| POST    |/api/products      |Create a new product
+| GET     | /api/products     | List products with optional filters & |pagination                    |
+| GET     | /api/products/:id |Get a product by ID
+| PUT     | /api/products/:id | Update a product by ID                    |
+| DELETE  | /api/products/:id |Delete a product by ID
+| GET     | /api/search       |Search products using multiple filters                     |
+
+
+## 📊 Examples (Postman)
+1️⃣ Get all products
+```
+GET http://localhost:5000/api/products?page=1&limit=10
