@@ -45,7 +45,7 @@ The API will run at http://localhost:5000
 
 Explore and test the API interactively using Swagger:
 
-http://localhost:5000/api-docs
+[View Swagger Docs](http://localhost:5000/api-docs)
 
 ## 🔗 Endpoints Overview
 
@@ -65,4 +65,4 @@ http://localhost:5000/api-docs
 ```
 GET http://localhost:5000/api/products?page=1&limit=10
 
-![GET Products](/docs/Post_Product.png)
+![GET Products](./docs/Post_Product.png)
