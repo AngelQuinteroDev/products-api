@@ -5,7 +5,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
+const searchRoutes = require("./routes/searchRoutes");
 const errorHandler = require("./middlewares/errorHandler");
+const setupSwagger = require("./config/swagger");
 
 dotenv.config();
 const app = express();
@@ -21,12 +23,15 @@ app.use(morgan("dev"));
 
 // Rutas
 app.use("/api/products", productRoutes);
+app.use("/api/search", searchRoutes);
 
 // Manejo de errores
 app.use(errorHandler);
 
+setupSwagger(app);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(process.env.PORT, () =>
-  console.log(`🚀 Servidor corriendo en http://localhost:${process.env.PORT}`)
+  console.log(`🚀 Server running in http://localhost:${process.env.PORT}`)
 );
