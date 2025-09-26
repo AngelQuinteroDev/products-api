@@ -4,13 +4,13 @@ const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "El nombre es obligatorio"],
+      required: [true, "The name is required"],
       trim: true,
     },
     price: {
       type: Number,
-      required: [true, "El precio es obligatorio"],
-      min: [0, "El precio no puede ser negativo"],
+      required: [true, "The price is mandatory"],
+      min: [0, "The price cannot be negative"],
     },
     category: {
       type: String,
@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
     stock: {
       type: Number,
       default: 0,
-      min: [0, "El stock no puede ser negativo"],
+      min: [0, "The stock cannot be negative"],
     },
   },
   { timestamps: true }

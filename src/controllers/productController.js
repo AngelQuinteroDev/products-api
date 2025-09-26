@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 
-// Crear producto
+// Create product
 exports.createProduct = async (req, res, next) => {
   try {
     const product = await Product.create(req.body);
@@ -10,7 +10,7 @@ exports.createProduct = async (req, res, next) => {
   }
 };
 
-// Listar productos con filtros y paginación
+// List products with filters and pagination
 exports.getProducts = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, category, minPrice, maxPrice } = req.query;
@@ -32,37 +32,37 @@ exports.getProducts = async (req, res, next) => {
   }
 };
 
-// Obtener producto por ID
+// Get product by ID
 exports.getProductById = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);
-    if (!product) return res.status(404).json({ message: "Producto no encontrado" });
+    if (!product) return res.status(404).json({ message: "Product not found" });
     res.json(product);
   } catch (error) {
     next(error);
   }
 };
 
-// Actualizar producto
+// Update product
 exports.updateProduct = async (req, res, next) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
-    if (!product) return res.status(404).json({ message: "Producto no encontrado" });
+    if (!product) return res.status(404).json({ message: "Product not found" });
     res.json(product);
   } catch (error) {
     next(error);
   }
 };
 
-// Eliminar producto
+// Delete product
 exports.deleteProduct = async (req, res, next) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
-    if (!product) return res.status(404).json({ message: "Producto no encontrado" });
-    res.json({ message: "Producto eliminado" });
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    res.json({ message: "Removed product" });
   } catch (error) {
     next(error);
   }

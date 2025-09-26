@@ -12,7 +12,7 @@ const setupSwagger = require("./config/swagger");
 dotenv.config();
 const app = express();
 
-// Conexión a la DB
+// Connection to the DB
 connectDB();
 
 // Middlewares
@@ -21,11 +21,11 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 
-// Rutas
+// Endpoints Routes
 app.use("/api/products", productRoutes);
 app.use("/api/search", searchRoutes);
 
-// Manejo de errores
+// Error handling
 app.use(errorHandler);
 
 setupSwagger(app);

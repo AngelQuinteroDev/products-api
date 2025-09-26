@@ -1,43 +1,43 @@
 const { validationResult } = require("express-validator");
 
 const errorHandler = (err, req, res, next) => {
-  console.error("❌ Error capturado:", err); // Para debug en consola
+  console.error("❌ Error caught:", err); // For debugging in console
 
-  // 1. Errores de validación con express-validator
+  // 1. Validation errors with express-validator
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ 
-      message: "Error de validación", 
+      message: "Validation Error", 
       errors: errors.array() 
     });
   }
 
-  // 2. Errores de validación de Mongoose
+  //  2. Mongoose validation errors
   if (err.name === "ValidationError") {
     return res.status(400).json({
-      message: "Error de validación en la base de datos",
+      message: "Database validation error",
       errors: Object.values(err.errors).map(e => e.message),
     });
   }
 
-  // 3. Error si un ID de Mongo no es válido
+  // 3. Error if a Mongo ID is not valid
   if (err.name === "CastError") {
     return res.status(400).json({
-      message: `ID inválido: ${err.value}`,
+      message: `Invalid ID: ${err.value}`,
     });
   }
 
-  // 4. Duplicados en Mongo (ej: unique fields)
+  // 4. Duplicates in Mongo (e.g., unique fields)
   if (err.code === 11000) {
     return res.status(409).json({
-      message: "Ya existe un registro con ese valor único",
+      message: "A record with that unique value already exists",
       duplicate: err.keyValue,
     });
   }
 
-  // 5. Por defecto, error interno
+  // 5. By default, internal error
   res.status(err.statusCode || 500).json({
-    message: err.message || "Error interno del servidor",
+    message: err.message || "Server internal error",
   });
 };
 

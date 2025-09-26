@@ -53,7 +53,7 @@ const options = {
       },
     },
   },
-  apis: ["./src/routes/*.js"], // Aquí leerá los comentarios JSDoc en los archivos de rutas
+  apis: ["./src/routes/*.js"], // Here you will read the JSDoc comments in the routes files.
 };
 
 const specs = swaggerJsDoc(options);

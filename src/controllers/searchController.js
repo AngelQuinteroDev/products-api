@@ -12,13 +12,13 @@ exports.searchProducts = async (req, res, next) => {
 
     const query = {};
 
-    // Filtros dinámicos
+    // Dynamic filters
     if (category) query.category = category;
     if (stock !== undefined) query.stock = Number(stock);
     if (minPrice) query.price = { ...query.price, $gte: Number(minPrice) };
     if (maxPrice) query.price = { ...query.price, $lte: Number(maxPrice) };
 
-    // Búsqueda por nombre (parcial, insensible a mayúsculas/minúsculas)
+    // Search by name (partial, case insensitive)
     if (name && name.trim().length > 0) {
       const safe = escapeRegex(name.trim());
       query.name = { $regex: safe, $options: "i" }; // partial match, case-insensitive
