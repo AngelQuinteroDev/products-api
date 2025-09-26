@@ -1,50 +1,18 @@
-🛒 Products API
+##🛒 Products API
 
-A RESTful API to manage products, built with Node.js, Express, and MongoDB. Supports CRUD operations, advanced searches, pagination, and filtering.
+A RESTful API to manage products, built with **Node.js**, **Express**, and **MongoDB**.
+Supports CRUD operations, complex search with filters, pagination, and comes with Swagger documentation.
 
-🚀 Features
+✨ Features
 
-Create, read, update, and delete products
+✅ CRUD operations for products
 
-Filter products by category, price, stock, or name
+🔍 Search products by name, category, stock, price
 
-Pagination for product lists
+📄 Pagination for product listings
 
-Input validation with express-validator
+🛡 Input validation with express-validator
 
-Secure HTTP headers with helmet and cors
+🔒 Security headers with helmet & cors
 
-Comprehensive API documentation via Swagger
-
-
-🛠 Installation
-
-Clone the repository
-
-git clone https://github.com/AngelQuinteroDev/products-api
-cd products-api
-
-Install dependencies
-
-npm install
-
-Set up environment variables
-
-Create a .env file in the root:
-
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/productsDB
-
-
-Run the server
-
-For development with auto-reload:
-
-npm run dev
-
-
-Or for production:
-
-npm start
-
-The API will run at: http://localhost:5000
+📑 API documented using Swagger
